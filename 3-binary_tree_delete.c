@@ -3,7 +3,7 @@
  * binary_tree_delete - Deletion of tree
  * @tree: pointer
  */
-void binary_tree_delete(binary_tree_t *tree);
+void binary_tree_delete(binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return;
