@@ -3,20 +3,23 @@
  * binary_tree_insert_left - Create left child
  * @parent: pointer
  * @value: int
- * Return: 
+ * Return:
  */
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
 	binary_tree_t *node = malloc(sizeof(binary_tree_t));
 
+	if (parent == NULL)
+		return (NULL);
+
+	node = binary_tree_insert_left(parent->left, value);
 	if (node == NULL)
 		return NULL;
-	node->parent = parent;
 
-	node->left = NULL;
-	node->right = NULL;
+	if (parent->left == NULL)
+		parent->left = node;
+
 	node->n = value;
-
-	parent->left = binary_tree_insert_left(parent->left, value);
+	node->right = parent;
 	return (node);
 }
